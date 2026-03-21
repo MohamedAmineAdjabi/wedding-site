@@ -1,0 +1,883 @@
+/* ============================================
+   WEDDING INVITATION - PURE CSS
+   Color Scheme: Rose Pink (#E94B7E), Gold (#F4D03F), Blush (#F5D5E3)
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #FAFAF8, #F5D5E3);
+    color: #2D1B2E;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.couple-name {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: #E94B7E;
+    text-align: center;
+    letter-spacing: 2px;
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+.section-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: #E94B7E;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(to right, #E94B7E, #F4D03F, #E94B7E);
+    width: 0%;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(233, 75, 126, 0.5);
+}
+
+/* ============================================
+   FLOATING RIBBON
+   ============================================ */
+
+.floating-ribbon {
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    pointer-events: none;
+    animation: floatRibbon 4s ease-in-out infinite;
+}
+
+.ribbon-content {
+    background: linear-gradient(135deg, #E94B7E, #D4346B);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 10px 30px rgba(233, 75, 126, 0.4);
+    position: relative;
+}
+
+.ribbon-content::before,
+.ribbon-content::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 30px;
+    transform: translateY(-50%) skewX(-20deg);
+    background: linear-gradient(to right, #D4346B, #E94B7E);
+}
+
+.ribbon-content::before {
+    left: -15px;
+}
+
+.ribbon-content::after {
+    right: -15px;
+}
+
+@keyframes floatRibbon {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateX(-50%) translateY(-10px) rotate(2deg); }
+}
+
+/* ============================================
+   PARTICLES
+   ============================================ */
+
+.particles-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+}
+
+.particle-sparkle {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #F4D03F, #E94B7E);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(244, 208, 63, 0.8);
+}
+
+/* ============================================
+   BALLOONS
+   ============================================ */
+
+.balloons-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    border-radius: 50% 50% 50% 0;
+    opacity: 0.8;
+    animation: float 6s ease-in infinite;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.balloon-pink { background: linear-gradient(135deg, #E94B7E, #F5D5E3); }
+.balloon-gold { background: linear-gradient(135deg, #F4D03F, #E8A000); }
+.balloon-rose { background: linear-gradient(135deg, #D4346B, #E94B7E); }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663460150372/V8mZk4wvgSWf5iiMsaeFCF/hero-background-U3pkgZtya4yujF7FXAjxbq.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(250, 250, 248, 0.2), rgba(245, 213, 227, 0.4));
+    z-index: 1;
+}
+
+.envelope-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+/* ============================================
+   ENVELOPE
+   ============================================ */
+
+.envelope {
+    width: clamp(200px, 80vw, 400px);
+    height: clamp(150px, 60vw, 300px);
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.envelope-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #E94B7E, #D4346B);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(233, 75, 126, 0.3);
+    transition: all 0.3s ease;
+}
+
+.envelope-front:hover {
+    box-shadow: 0 30px 70px rgba(233, 75, 126, 0.5);
+    transform: scale(1.02);
+}
+
+.envelope-border-top,
+.envelope-border-bottom,
+.envelope-border-left,
+.envelope-border-right {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, #F4D03F, transparent);
+}
+
+.envelope-border-top,
+.envelope-border-bottom {
+    height: 2px;
+    width: 100%;
+}
+
+.envelope-border-top { top: 10px; }
+.envelope-border-bottom { bottom: 10px; }
+
+.envelope-border-left,
+.envelope-border-right {
+    width: 2px;
+    height: 100%;
+}
+
+.envelope-border-left { left: 10px; }
+.envelope-border-right { right: 10px; }
+
+.wax-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.seal-circle {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #F4D03F, #E8A000);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(244, 208, 63, 0.5), inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+    animation: sealPulse 2s ease-in-out infinite;
+}
+
+.seal-heart {
+    font-size: 2.5rem;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes sealPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.envelope-text {
+    text-align: center;
+    color: white;
+    z-index: 3;
+    position: relative;
+}
+
+.envelope-label {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.envelope-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.click-hint {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 3;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, #D4346B, #E94B7E);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 10px 30px rgba(233, 75, 126, 0.3);
+}
+
+.flap-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(-170deg);
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #F5D5E3, #FFF);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #E94B7E;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    animation: fadeInOut 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+    animation: slideDown 1s ease-in-out infinite;
+    margin-top: 5px;
+}
+
+@keyframes slideDown {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.5; }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* ============================================
+   WEDDING SECTIONS
+   ============================================ */
+
+.wedding-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-couple {
+    background: linear-gradient(135deg, #FAFAF8 0%, #F5D5E3 100%);
+}
+
+.section-date {
+    background: linear-gradient(135deg, #F5D5E3 0%, #FFF 100%);
+}
+
+.section-location {
+    background: linear-gradient(135deg, #FFF 0%, #F5D5E3 100%);
+}
+
+.section-celebration {
+    background: linear-gradient(135deg, #F5D5E3 0%, #FAFAF8 100%);
+}
+
+.section-content {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================
+   ORNATE FRAME
+   ============================================ */
+
+.ornate-frame {
+    position: relative;
+    padding: 40px;
+    border: 4px solid #F4D03F;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(244, 208, 63, 0.1), rgba(233, 75, 126, 0.05));
+    box-shadow: 0 20px 60px rgba(233, 75, 126, 0.15);
+    animation: frameSlideIn 0.8s ease-out;
+    transition: all 0.3s ease;
+}
+
+.ornate-frame:hover {
+    transform: scale(1.02);
+    box-shadow: 0 30px 80px rgba(233, 75, 126, 0.25);
+}
+
+.frame-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #F4D03F;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(244, 208, 63, 0.6);
+}
+
+.frame-corner-tl { top: -10px; left: -10px; }
+.frame-corner-tr { top: -10px; right: -10px; }
+.frame-corner-bl { bottom: -10px; left: -10px; }
+.frame-corner-br { bottom: -10px; right: -10px; }
+
+.frame-inner {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes frameSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ============================================
+   DIVIDERS
+   ============================================ */
+
+.divider-ornate {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E94B7E, transparent);
+    margin: 20px auto;
+    position: relative;
+}
+
+.divider-ornate::before,
+.divider-ornate::after {
+    content: '✦';
+    position: absolute;
+    color: #E94B7E;
+    font-size: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.divider-ornate::before { left: -15px; }
+.divider-ornate::after { right: -15px; }
+
+.divider-floral {
+    width: 80px;
+    height: 30px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider-floral::before {
+    content: '🌹';
+    font-size: 1.5rem;
+    animation: floatEmoji 3s ease-in-out infinite;
+}
+
+@keyframes floatEmoji {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   TEXT STYLES
+   ============================================ */
+
+.couple-and {
+    font-size: 2rem;
+    color: #E94B7E;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+.date-text {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: #E94B7E;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.date-day {
+    font-size: 1.2rem;
+    color: #D4346B;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.location-text {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #E94B7E;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.venue-text {
+    font-size: 1rem;
+    color: #D4346B;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.celebration-text {
+    font-size: 1.1rem;
+    color: #2D1B2E;
+    text-align: center;
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.celebration-subtitle {
+    font-size: 1rem;
+    color: #E94B7E;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* ============================================
+   FLOATING ELEMENTS
+   ============================================ */
+
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.floating-emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 8s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   CONFETTI
+   ============================================ */
+
+.confetti-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.confetti {
+    position: absolute;
+    pointer-events: none;
+}
+
+.confetti-piece {
+    width: 10px;
+    height: 10px;
+    background: #E94B7E;
+    animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #E94B7E, #D4346B);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 10px 30px rgba(233, 75, 126, 0.4);
+    transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(233, 75, 126, 0.6);
+}
+
+.back-to-top.show {
+    display: flex;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .ornate-frame {
+        padding: 30px;
+        border-width: 3px;
+    }
+
+    .frame-corner {
+        width: 15px;
+        height: 15px;
+    }
+
+    .frame-corner-tl { top: -7px; left: -7px; }
+    .frame-corner-tr { top: -7px; right: -7px; }
+    .frame-corner-bl { bottom: -7px; left: -7px; }
+    .frame-corner-br { bottom: -7px; right: -7px; }
+
+    .envelope {
+        width: clamp(150px, 90vw, 300px);
+        height: clamp(120px, 70vw, 225px);
+    }
+
+    .seal-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .seal-heart {
+        font-size: 1.8rem;
+    }
+
+    .wedding-section {
+        padding: 40px 15px;
+    }
+
+    .floating-ribbon {
+        top: 20px;
+    }
+
+    .ribbon-content {
+        padding: 10px 24px;
+        font-size: 0.8rem;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .ornate-frame {
+        padding: 20px;
+        border-width: 2px;
+    }
+
+    .frame-corner {
+        width: 12px;
+        height: 12px;
+    }
+
+    .frame-corner-tl { top: -6px; left: -6px; }
+    .frame-corner-tr { top: -6px; right: -6px; }
+    .frame-corner-bl { bottom: -6px; left: -6px; }
+    .frame-corner-br { bottom: -6px; right: -6px; }
+
+    .envelope {
+        width: clamp(120px, 85vw, 250px);
+        height: clamp(100px, 65vw, 190px);
+    }
+
+    .seal-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .seal-heart {
+        font-size: 1.5rem;
+    }
+
+    .envelope-label {
+        font-size: 0.8rem;
+    }
+
+    .envelope-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .click-hint {
+        font-size: 0.75rem;
+    }
+
+    .wedding-section {
+        padding: 30px 10px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .couple-name {
+        font-size: 1.8rem;
+    }
+
+    .floating-ribbon {
+        top: 15px;
+    }
+
+    .ribbon-content {
+        padding: 8px 16px;
+        font-size: 0.7rem;
+    }
+
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Utility animations */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
