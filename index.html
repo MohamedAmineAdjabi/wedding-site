@@ -3,173 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanane & Amine - Wedding Invitation</title>
+    <title>Hanane &amp; Amine — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay"></div>
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
 
-    <!-- Floating Ribbon -->
-    <div class="floating-ribbon">
-        <div class="ribbon-content">
-            <span class="ribbon-text">Celebrate Love</span>
-        </div>
-    </div>
-
-    <!-- Particle Effects Container -->
-    <div class="particles-container" id="particlesContainer"></div>
+    <!-- Falling Petals -->
+    <div class="petals-container" id="petalsContainer"></div>
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Hero Section with Envelope -->
-        <section class="hero-section">
-            <!-- Floating Balloons -->
-            <div class="balloons-container" id="balloonsContainer"></div>
 
-            <!-- Envelope -->
+        <!-- ── Hero / Envelope ── -->
+        <section class="hero-section">
             <div class="envelope-wrapper">
                 <div class="envelope" id="envelope">
-                    <!-- Envelope Body -->
                     <div class="envelope-body">
-                        <!-- Front -->
-                        <div class="envelope-front">
-                            <!-- Decorative borders -->
-                            <div class="envelope-border-top"></div>
-                            <div class="envelope-border-bottom"></div>
-                            <div class="envelope-border-left"></div>
-                            <div class="envelope-border-right"></div>
 
-                            <!-- Wax Seal -->
+                        <div class="envelope-back">
+                            <div class="envelope-back-inner"></div>
+                        </div>
+
+                        <div class="envelope-front">
+                            <div class="env-line env-line-top"></div>
+                            <div class="env-line env-line-bottom"></div>
+                            <div class="env-line env-line-left"></div>
+                            <div class="env-line env-line-right"></div>
+
                             <div class="wax-seal">
                                 <div class="seal-circle">
-                                    <span class="seal-heart">❤</span>
+                                    <span class="seal-monogram">H &amp; A</span>
                                 </div>
                             </div>
 
-                            <!-- Text -->
                             <div class="envelope-text">
-                                <p class="envelope-label">You are invited to</p>
+                                <p class="envelope-label">You are cordially invited</p>
                                 <p class="envelope-subtitle">A Celebration of Love</p>
                             </div>
 
-                            <!-- Click hint -->
                             <div class="click-hint" id="clickHint">
-                                <p>Click to Open</p>
+                                <span class="click-hint-text">Open Invitation</span>
+                                <span class="click-hint-icon">↓</span>
                             </div>
                         </div>
 
-                        <!-- Flap -->
-                        <div class="envelope-flap" id="envelopeFlap">
-                            <div class="flap-shine"></div>
-                        </div>
-
-                        <!-- Back -->
-                        <div class="envelope-back"></div>
+                        <div class="envelope-flap" id="envelopeFlap"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Scroll Indicator -->
             <div class="scroll-indicator" id="scrollIndicator">
-                <p>Scroll to Continue</p>
-                <div class="scroll-arrow">↓</div>
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
-        <!-- Wedding Info Sections -->
+        <!-- ── Couple Names ── -->
         <section class="wedding-section section-couple">
             <div class="section-content">
-                <div class="ornate-frame">
-                    <div class="frame-corner frame-corner-tl"></div>
-                    <div class="frame-corner frame-corner-tr"></div>
-                    <div class="frame-corner frame-corner-bl"></div>
-                    <div class="frame-corner frame-corner-br"></div>
-                    
+                <div class="elegant-frame">
+                    <div class="ornament top-ornament">
+                        <span class="orn-line"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line orn-line-rev"></span>
+                    </div>
+
                     <div class="frame-inner">
+                        <p class="pre-title">The Wedding of</p>
                         <h1 class="couple-name">Hanane Niat</h1>
-                        <div class="divider-ornate"></div>
-                        <p class="couple-and">&</p>
-                        <div class="divider-ornate"></div>
+                        <div class="ampersand-wrapper">
+                            <span class="couple-and">&amp;</span>
+                        </div>
                         <h1 class="couple-name">Adjabi Mohamed Amine</h1>
                     </div>
-                </div>
 
-                <!-- Floating Elements -->
-                <div class="floating-elements">
-                    <span class="floating-emoji" style="--delay: 0s; --duration: 5s;">🌹</span>
-                    <span class="floating-emoji" style="--delay: 0.5s; --duration: 6s;">💐</span>
-                    <span class="floating-emoji" style="--delay: 1s; --duration: 7s;">✨</span>
-                    <span class="floating-emoji" style="--delay: 0.3s; --duration: 5.5s;">💕</span>
+                    <div class="ornament bottom-ornament">
+                        <span class="orn-line orn-line-rev"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line"></span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Date Section -->
+        <!-- ── Date ── -->
         <section class="wedding-section section-date">
             <div class="section-content">
-                <div class="ornate-frame">
-                    <div class="frame-corner frame-corner-tl"></div>
-                    <div class="frame-corner frame-corner-tr"></div>
-                    <div class="frame-corner frame-corner-bl"></div>
-                    <div class="frame-corner frame-corner-br"></div>
-                    
+                <div class="elegant-frame">
+                    <div class="ornament top-ornament">
+                        <span class="orn-line"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line orn-line-rev"></span>
+                    </div>
+
                     <div class="frame-inner">
-                        <h2 class="section-title">Save the Date</h2>
-                        <div class="divider-floral"></div>
-                        <p class="date-text">19th September 2026</p>
-                        <p class="date-day">Saturday</p>
+                        <p class="pre-title">Save the Date</p>
+                        <div class="date-display">
+                            <div class="date-block">
+                                <span class="date-number">19</span>
+                                <span class="date-label">September</span>
+                            </div>
+                            <div class="date-divider-vert"></div>
+                            <div class="date-block">
+                                <span class="date-number">2026</span>
+                                <span class="date-label">Saturday</span>
+                            </div>
+                        </div>
+
+                        <div class="countdown" id="countdown">
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="days">--</span>
+                                <span class="countdown-label">Days</span>
+                            </div>
+                            <div class="countdown-sep">·</div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="hours">--</span>
+                                <span class="countdown-label">Hours</span>
+                            </div>
+                            <div class="countdown-sep">·</div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="minutes">--</span>
+                                <span class="countdown-label">Minutes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ornament bottom-ornament">
+                        <span class="orn-line orn-line-rev"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line"></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Location Section -->
+        <!-- ── Location ── -->
         <section class="wedding-section section-location">
             <div class="section-content">
-                <div class="ornate-frame">
-                    <div class="frame-corner frame-corner-tl"></div>
-                    <div class="frame-corner frame-corner-tr"></div>
-                    <div class="frame-corner frame-corner-bl"></div>
-                    <div class="frame-corner frame-corner-br"></div>
-                    
+                <div class="elegant-frame">
+                    <div class="ornament top-ornament">
+                        <span class="orn-line"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line orn-line-rev"></span>
+                    </div>
+
                     <div class="frame-inner">
-                        <h2 class="section-title">Location</h2>
-                        <div class="divider-floral"></div>
-                        <p class="location-text">Elbouni, Annaba</p>
-                        <p class="venue-text">Salle: ######</p>
+                        <p class="pre-title">Venue</p>
+                        <h2 class="section-title">Elbouni, Annaba</h2>
+                        <p class="venue-name">Salle: ######</p>
+                        <p class="venue-detail">Annaba, Algeria</p>
+                    </div>
+
+                    <div class="ornament bottom-ornament">
+                        <span class="orn-line orn-line-rev"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line"></span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Celebration Section -->
+        <!-- ── Join Us ── -->
         <section class="wedding-section section-celebration">
             <div class="section-content">
-                <div class="ornate-frame">
-                    <div class="frame-corner frame-corner-tl"></div>
-                    <div class="frame-corner frame-corner-tr"></div>
-                    <div class="frame-corner frame-corner-bl"></div>
-                    <div class="frame-corner frame-corner-br"></div>
-                    
+                <div class="elegant-frame">
+                    <div class="ornament top-ornament dark-ornament">
+                        <span class="orn-line"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line orn-line-rev"></span>
+                    </div>
+
                     <div class="frame-inner">
-                        <h2 class="section-title">Join Us</h2>
-                        <div class="divider-floral"></div>
-                        <p class="celebration-text">We invite you to celebrate our love and joy with us on this special day.</p>
-                        <p class="celebration-subtitle">Together, we create beautiful memories</p>
+                        <p class="pre-title">Together with their families</p>
+                        <h2 class="section-title dark-title">Join Us</h2>
+                        <p class="celebration-text">
+                            We joyfully invite you to share in our celebration<br>
+                            as we begin our lives together.
+                        </p>
+                        <p class="celebration-verse">"Two souls, one heart."</p>
+                    </div>
+
+                    <div class="ornament bottom-ornament dark-ornament">
+                        <span class="orn-line orn-line-rev"></span>
+                        <span class="orn-diamond">◆</span>
+                        <span class="orn-line"></span>
                     </div>
                 </div>
-
-                <!-- Confetti on scroll -->
-                <div class="confetti-container" id="confettiContainer"></div>
             </div>
         </section>
+
     </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">↑</button>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-    <!-- Scripts -->
     <script src="script.js"></script>
 </body>
 </html>
