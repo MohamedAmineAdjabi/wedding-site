@@ -3,208 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanane &amp; Amine — Wedding Invitation</title>
+    <title>Hanane & Amine — 19.09.2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Grain Overlay -->
-    <div class="grain-overlay"></div>
+    <div class="grain"></div>
+    <div class="progress-bar" id="progressBar"></div>
+    <canvas id="petalCanvas"></canvas>
 
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-
-    <!-- Falling Petals -->
-    <div class="petals-container" id="petalsContainer"></div>
-
-    <!-- Main Container -->
-    <div class="main-container">
-
-        <!-- ── Hero / Envelope ── -->
-        <section class="hero-section">
-            <div class="envelope-wrapper">
-                <div class="envelope" id="envelope">
-                    <div class="envelope-body">
-
-                        <div class="envelope-back">
-                            <div class="envelope-back-inner"></div>
-                        </div>
-
-                        <div class="envelope-front">
-                            <div class="env-line env-line-top"></div>
-                            <div class="env-line env-line-bottom"></div>
-                            <div class="env-line env-line-left"></div>
-                            <div class="env-line env-line-right"></div>
-
-                            <div class="wax-seal">
-                                <div class="seal-circle">
-                                    <span class="seal-monogram">H &amp; A</span>
-                                </div>
-                            </div>
-
-                            <div class="envelope-text">
-                                <p class="envelope-label">You are cordially invited</p>
-                                <p class="envelope-subtitle">A Celebration of Love</p>
-                            </div>
-
-                            <div class="click-hint" id="clickHint">
-                                <span class="click-hint-text">Open Invitation</span>
-                                <span class="click-hint-icon">↓</span>
-                            </div>
-                        </div>
-
-                        <div class="envelope-flap" id="envelopeFlap"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="scroll-indicator" id="scrollIndicator">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
-
-        <!-- ── Couple Names ── -->
-        <section class="wedding-section section-couple">
-            <div class="section-content">
-                <div class="elegant-frame">
-                    <div class="ornament top-ornament">
-                        <span class="orn-line"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line orn-line-rev"></span>
-                    </div>
-
-                    <div class="frame-inner">
-                        <p class="pre-title">The Wedding of</p>
-                        <h1 class="couple-name">Hanane Niat</h1>
-                        <div class="ampersand-wrapper">
-                            <span class="couple-and">&amp;</span>
-                        </div>
-                        <h1 class="couple-name">Adjabi Mohamed Amine</h1>
-                    </div>
-
-                    <div class="ornament bottom-ornament">
-                        <span class="orn-line orn-line-rev"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── Date ── -->
-        <section class="wedding-section section-date">
-            <div class="section-content">
-                <div class="elegant-frame">
-                    <div class="ornament top-ornament">
-                        <span class="orn-line"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line orn-line-rev"></span>
-                    </div>
-
-                    <div class="frame-inner">
-                        <p class="pre-title">Save the Date</p>
-                        <div class="date-display">
-                            <div class="date-block">
-                                <span class="date-number">19</span>
-                                <span class="date-label">September</span>
-                            </div>
-                            <div class="date-divider-vert"></div>
-                            <div class="date-block">
-                                <span class="date-number">2026</span>
-                                <span class="date-label">Saturday</span>
-                            </div>
-                        </div>
-
-                        <div class="countdown" id="countdown">
-                            <div class="countdown-item">
-                                <span class="countdown-value" id="days">--</span>
-                                <span class="countdown-label">Days</span>
-                            </div>
-                            <div class="countdown-sep">·</div>
-                            <div class="countdown-item">
-                                <span class="countdown-value" id="hours">--</span>
-                                <span class="countdown-label">Hours</span>
-                            </div>
-                            <div class="countdown-sep">·</div>
-                            <div class="countdown-item">
-                                <span class="countdown-value" id="minutes">--</span>
-                                <span class="countdown-label">Minutes</span>
+    <!-- ── HERO ── -->
+    <section class="hero" id="hero">
+        <div class="mesh">
+            <div class="mesh-circle mc1"></div>
+            <div class="mesh-circle mc2"></div>
+            <div class="mesh-circle mc3"></div>
+        </div>
+        <div class="hero-frame">
+            <span class="hf hf-tl"></span>
+            <span class="hf hf-tr"></span>
+            <span class="hf hf-bl"></span>
+            <span class="hf hf-br"></span>
+        </div>
+        <div class="hero-top-label">
+            <span class="hero-year">2 0 2 6</span>
+        </div>
+        <div class="env-scene" id="envScene">
+            <div class="env" id="env">
+                <div class="env-body">
+                    <div class="env-v"></div>
+                    <div class="env-border"></div>
+                    <div class="seal" id="seal">
+                        <div class="seal-outer">
+                            <div class="seal-inner">
+                                <div class="seal-text">H&amp;A</div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="ornament bottom-ornament">
-                        <span class="orn-line orn-line-rev"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line"></span>
+                    <div class="env-label">
+                        <p class="env-label-top">You are cordially invited</p>
+                        <h2 class="env-label-name">Hanane &amp; Amine</h2>
+                    </div>
+                    <div class="env-hint" id="envHint">
+                        <span>Open Invitation</span>
+                        <svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
                     </div>
                 </div>
+                <div class="env-flap" id="envFlap"></div>
             </div>
-        </section>
+        </div>
+        <div class="scroll-cue" id="scrollCue">
+            <div class="sc-line"></div>
+            <span class="sc-text">Scroll</span>
+        </div>
+    </section>
 
-        <!-- ── Location ── -->
-        <section class="wedding-section section-location">
-            <div class="section-content">
-                <div class="elegant-frame">
-                    <div class="ornament top-ornament">
-                        <span class="orn-line"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line orn-line-rev"></span>
-                    </div>
+    <!-- ── COUPLE ── -->
+    <section class="page-section s-light s-couple">
+        <div class="reveal-block">
+            <div class="card">
+                <div class="orn-row"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                <p class="eyebrow">The Wedding of</p>
+                <div class="couple-names">
+                    <h1 class="bride-name">Hanane Niat</h1>
+                    <div class="et-wrapper"><span class="et">&amp;</span></div>
+                    <h1 class="groom-name">Adjabi Mohamed Amine</h1>
+                </div>
+                <div class="divider-thin"></div>
+                <p class="date-string">Saturday &nbsp;·&nbsp; 19 September 2026</p>
+                <div class="orn-row" style="margin-top:32px;"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="frame-inner">
-                        <p class="pre-title">Venue</p>
-                        <h2 class="section-title">Elbouni, Annaba</h2>
-                        <p class="venue-name">Salle: ######</p>
-                        <p class="venue-detail">Annaba, Algeria</p>
-                    </div>
-
-                    <div class="ornament bottom-ornament">
-                        <span class="orn-line orn-line-rev"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line"></span>
-                    </div>
+    <!-- ── COUNTDOWN ── -->
+    <section class="page-section s-rose s-countdown">
+        <div class="reveal-block">
+            <p class="eyebrow eyebrow-light">Counting down to forever</p>
+            <div class="countdown" id="countdown">
+                <div class="cd-item">
+                    <div class="cd-box"><span class="cd-num" id="cdDays">--</span></div>
+                    <span class="cd-lbl">Days</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-item">
+                    <div class="cd-box"><span class="cd-num" id="cdHours">--</span></div>
+                    <span class="cd-lbl">Hours</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-item">
+                    <div class="cd-box"><span class="cd-num" id="cdMinutes">--</span></div>
+                    <span class="cd-lbl">Minutes</span>
+                </div>
+                <div class="cd-sep">:</div>
+                <div class="cd-item">
+                    <div class="cd-box"><span class="cd-num" id="cdSeconds">--</span></div>
+                    <span class="cd-lbl">Seconds</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ── Join Us ── -->
-        <section class="wedding-section section-celebration">
-            <div class="section-content">
-                <div class="elegant-frame">
-                    <div class="ornament top-ornament dark-ornament">
-                        <span class="orn-line"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line orn-line-rev"></span>
-                    </div>
-
-                    <div class="frame-inner">
-                        <p class="pre-title">Together with their families</p>
-                        <h2 class="section-title dark-title">Join Us</h2>
-                        <p class="celebration-text">
-                            We joyfully invite you to share in our celebration<br>
-                            as we begin our lives together.
-                        </p>
-                        <p class="celebration-verse">"Two souls, one heart."</p>
-                    </div>
-
-                    <div class="ornament bottom-ornament dark-ornament">
-                        <span class="orn-line orn-line-rev"></span>
-                        <span class="orn-diamond">◆</span>
-                        <span class="orn-line"></span>
-                    </div>
+    <!-- ── CEREMONY ── -->
+    <section class="page-section s-light s-ceremony">
+        <div class="reveal-block">
+            <div class="two-col">
+                <div class="info-block">
+                    <div class="orn-row sm-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                    <p class="eyebrow">Ceremony</p>
+                    <h2 class="block-title">The Nikah</h2>
+                    <p class="block-time">6 : 00 PM</p>
+                    <p class="block-venue">Elbouni, Annaba</p>
+                    <p class="block-address">Annaba, Algeria</p>
+                </div>
+                <div class="divider-vert"></div>
+                <div class="info-block">
+                    <div class="orn-row sm-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                    <p class="eyebrow">Reception</p>
+                    <h2 class="block-title">Celebration</h2>
+                    <p class="block-time">8 : 00 PM</p>
+                    <p class="block-venue">Salle ######</p>
+                    <p class="block-address">Annaba, Algeria</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
+    <!-- ── QUOTE ── -->
+    <section class="page-section s-blush s-quote">
+        <div class="reveal-block">
+            <div class="quote-block">
+                <div class="quote-mark">"</div>
+                <blockquote class="quote-text">
+                    And of His signs is that He created for you<br>
+                    from yourselves mates that you may find<br>
+                    tranquillity in them
+                </blockquote>
+                <cite class="quote-source">— Quran 30:21</cite>
+            </div>
+        </div>
+    </section>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <!-- ── MESSAGE ── -->
+    <section class="page-section s-dark s-message">
+        <div class="dark-mesh">
+            <div class="dm-c dm-c1"></div>
+            <div class="dm-c dm-c2"></div>
+        </div>
+        <div class="reveal-block" style="position:relative;z-index:2;">
+            <div class="card card-dark">
+                <div class="orn-row dark-orn-row"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                <p class="eyebrow eyebrow-gold">Together with their families</p>
+                <h2 class="msg-title">Join Us</h2>
+                <p class="msg-body">
+                    We joyfully request the honour of your presence<br>
+                    as we begin our journey together in love, faith, and joy.
+                </p>
+                <p class="msg-verse">بسم الله الرحمن الرحيم</p>
+                <div class="orn-row dark-orn-row" style="margin-top:36px;"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+        <div class="orn-row footer-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+        <p class="footer-names">Hanane &amp; Amine</p>
+        <p class="footer-date">19 · 09 · 2026</p>
+        <p class="footer-sub">Annaba, Algeria</p>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
 </body>
