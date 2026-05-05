@@ -3,7 +3,7 @@
    Palette: Deep Rose · Dusty Pink · Blush · Gold
    ══════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@100;200;300;400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -164,18 +164,25 @@ body {
     position: relative;
     z-index: 10;
     cursor: pointer;
+    perspective: 1400px;        /* ← required for 3D flap rotation */
 }
 
 .env {
     width: clamp(290px, 72vw, 500px);
     height: clamp(195px, 48vw, 334px);
     position: relative;
+    transform-style: preserve-3d;   /* ← carry 3D context to children */
     transition: transform 0.4s var(--ease), filter 0.4s;
 }
 
-.env:hover {
+.env:not(.opened):hover {           /* ← hover only when closed */
     transform: translateY(-8px) scale(1.01);
     filter: drop-shadow(0 40px 60px rgba(30,5,15,0.5));
+}
+
+.env.opened {
+    cursor: default;
+    filter: drop-shadow(0 50px 80px rgba(20,5,15,0.6));
 }
 
 .env-body {
@@ -320,9 +327,11 @@ body {
     background: linear-gradient(175deg, #F0E4EA, #E8D4DC);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     transform-origin: top center;
-    transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 3;
-    box-shadow: 0 4px 16px rgba(107,30,53,0.15);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4;                         /* ← above env-body (z:2) */
+    box-shadow: 0 6px 20px rgba(107,30,53,0.18);
+    backface-visibility: hidden;        /* ← hide back face when flipped */
+    -webkit-backface-visibility: hidden;
 }
 
 .env-flap::after {
@@ -334,7 +343,7 @@ body {
 }
 
 .env.opened .env-flap {
-    transform: rotateX(-178deg);
+    transform: rotateX(-180deg);        /* ← full 180° = perfectly flat open */
     box-shadow: none;
 }
 
@@ -944,4 +953,56 @@ body {
 
 @media (max-width: 500px) {
     .single-ceremony { padding: 40px 28px; }
+}
+
+/* ══════════════════════════════════════════
+   HERO TAGLINE (above envelope)
+══════════════════════════════════════════ */
+
+.hero-tagline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -190%);  /* sit above envelope */
+    z-index: 10;
+    text-align: center;
+    white-space: nowrap;
+    animation: taglineFade 1.8s var(--ease) both;
+}
+
+@keyframes taglineFade {
+    from { opacity: 0; transform: translate(-50%, -200%); }
+    to   { opacity: 1; transform: translate(-50%, -190%); }
+}
+
+.hero-tagline-text {
+    font-family: var(--ff-serif);
+    font-size: clamp(0.9rem, 2.5vw, 1.25rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(242, 215, 224, 0.85);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.hero-tagline-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(217,185,120,0.6), transparent);
+    margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════
+   ARABIC QURAN QUOTE
+══════════════════════════════════════════ */
+
+.quote-arabic {
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', var(--ff-serif);
+    font-size: clamp(1.25rem, 3.8vw, 1.85rem) !important;
+    font-style: normal !important;
+    line-height: 2.2 !important;
+    direction: rtl;
+    text-align: center;
+    letter-spacing: 0 !important;
+    color: var(--ink-mid);
 }
