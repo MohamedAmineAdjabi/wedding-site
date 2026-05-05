@@ -837,4 +837,111 @@ body {
     justify-content: center;
     z-index: 999;
     transition: all 0.3s var(--ease);
-    box-sha
+    box-shadow: 0 4px 16px rgba(107,30,53,0.15);
+}
+
+.btt:hover {
+    background: var(--rose-dark);
+    border-color: var(--rose-dark);
+    color: var(--cream);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(107,30,53,0.35);
+}
+
+.btt.show { display: flex; animation: fadeUp 0.4s var(--ease) both; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+    .two-col {
+        flex-direction: column;
+        gap: 36px;
+        padding: 40px 28px;
+    }
+
+    .divider-vert {
+        width: 60px; height: 1px;
+        background: linear-gradient(to right, transparent, rgba(196,154,90,0.3), transparent);
+        align-self: center;
+    }
+
+    .card { padding: 44px 28px; }
+
+    .cd-sep { padding: 0 6px; }
+
+    .btt { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+}
+
+@media (max-width: 400px) {
+    .countdown { gap: 0; row-gap: 16px; }
+    .cd-sep { font-size: 1.2rem; padding: 0 4px; margin-top: 22px; }
+    .card { padding: 32px 16px; }
+}
+
+/* ══════════════════════════════════════════
+   SECTION SCROLL ARROW
+══════════════════════════════════════════ */
+
+.section-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 40px;
+    opacity: 0.55;
+    transition: opacity 0.3s;
+    cursor: default;
+}
+
+.section-arrow:hover { opacity: 0.9; }
+
+.sa-text {
+    font-family: var(--ff-sans);
+    font-size: 0.55rem;
+    font-weight: 200;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--rose-mid);
+}
+
+.sa-icon {
+    color: var(--rose-mid);
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+/* Pale variant for dark-bg countdown section */
+.section-arrow-pale .sa-text { color: rgba(242,221,228,0.55); }
+.section-arrow-pale .sa-icon { color: rgba(242,221,228,0.55); }
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(6px); }
+}
+
+/* ══════════════════════════════════════════
+   SINGLE-COLUMN CEREMONY (reception removed)
+══════════════════════════════════════════ */
+
+.single-ceremony {
+    padding: 56px 80px;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(250,243,245,0.8));
+    border: 1px solid rgba(196,154,90,0.2);
+    border-radius: 2px;
+    box-shadow:
+        0 2px 30px rgba(107,30,53,0.06),
+        0 0 0 6px rgba(196,154,90,0.06);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 500px) {
+    .single-ceremony { padding: 40px 28px; }
+}
