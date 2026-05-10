@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanane & Amine — 19.09.2026</title>
+    <title>Hanane &amp; Amine — 11.09.2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@100;200;300;400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,181 +15,202 @@
     <div class="progress-bar" id="progressBar"></div>
     <canvas id="petalCanvas"></canvas>
 
-    <!-- HERO -->
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
     <section class="hero" id="hero">
+
+        <!-- Background mesh -->
         <div class="mesh">
             <div class="mesh-circle mc1"></div>
             <div class="mesh-circle mc2"></div>
             <div class="mesh-circle mc3"></div>
         </div>
+
+        <!-- Corner frame lines -->
         <div class="hero-frame">
             <span class="hf hf-tl"></span>
             <span class="hf hf-tr"></span>
             <span class="hf hf-bl"></span>
             <span class="hf hf-br"></span>
         </div>
-        <div class="hero-top-label">
-            <span class="hero-year">2 0 2 6</span>
+
+        <!-- Year label top-center -->
+        <div class="hero-year-wrap">
+            <span class="hero-year">2 &thinsp; 0 &thinsp; 2 &thinsp; 6</span>
         </div>
-        <div class="env-scene" id="envScene">
-            <div class="env" id="env">
-                <div class="env-body">
-                    <div class="env-v"></div>
-                    <div class="env-border"></div>
-                    <div class="seal" id="seal">
-                        <div class="seal-outer">
-                            <div class="seal-inner">
-                                <div class="seal-text">H&amp;A</div>
+
+        <!-- Central column: tagline → envelope → scroll cue -->
+        <div class="hero-center">
+
+            <!-- Tagline -->
+            <div class="tagline">
+                <div class="tagline-rule"></div>
+                <p class="tagline-text">Maybe in distance, but never in heart</p>
+                <div class="tagline-rule"></div>
+            </div>
+
+            <!-- Envelope (click to open) -->
+            <div class="env-perspective" id="envScene">
+                <div class="env" id="env">
+
+                    <!-- Body (front face) -->
+                    <div class="env-body">
+                        <!-- Bottom V-fold lines -->
+                        <div class="env-vfold"></div>
+                        <!-- Gold border inset -->
+                        <div class="env-border"></div>
+
+                        <!-- Wax seal -->
+                        <div class="seal">
+                            <div class="seal-disk">
+                                <div class="seal-ring">
+                                    <span class="seal-mono">H &amp; A</span>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Label text -->
+                        <div class="env-text">
+                            <p class="env-invite">You are cordially invited</p>
+                            <p class="env-names">Hanane &amp; Amine</p>
+                        </div>
+
+                        <!-- Open hint -->
+                        <div class="env-open-hint" id="envHint">
+                            <span class="hint-label">Open Invitation</span>
+                            <span class="hint-arrow">↓</span>
+                        </div>
                     </div>
-                    <div class="env-label">
-                        <p class="env-label-top">You are cordially invited</p>
-                        <h2 class="env-label-name">Hanane &amp; Amine</h2>
+
+                    <!-- Flap (folds open on click) -->
+                    <div class="env-flap" id="envFlap">
+                        <div class="flap-shine"></div>
                     </div>
-                    <div class="env-hint" id="envHint">
-                        <span>Open Invitation</span>
-                        <svg viewBox="0 0 24 24" width="12" height="12"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
-                    </div>
+
                 </div>
-                <div class="env-flap" id="envFlap"></div>
             </div>
-        </div>
-        <div class="scroll-cue" id="scrollCue">
-            <div class="sc-line"></div>
-            <span class="sc-text">Scroll</span>
+
+            <!-- Scroll cue -->
+            <div class="scroll-cue" id="scrollCue">
+                <div class="sc-line"></div>
+                <span class="sc-label">Scroll</span>
+            </div>
+
         </div>
     </section>
 
-    <!-- COUPLE -->
-    <section class="page-section s-light s-couple">
+    <!-- ═══════════════════════ COUPLE ═══════════════════════ -->
+    <section class="page-section s-light">
         <div class="reveal-block">
             <div class="card">
                 <div class="orn-row"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
                 <p class="eyebrow">The Wedding of</p>
                 <div class="couple-names">
-                    <h1 class="bride-name">Adjabi Mohamed Amine</h1>
-                    <div class="et-wrapper"><span class="et">&amp;</span></div>
-                    <h1 class="groom-name">Niat Hanane</h1>
+                    <h1 class="partner-name">Adjabi Mohamed Amine</h1>
+                    <div class="et-wrap"><span class="et">&amp;</span></div>
+                    <h1 class="partner-name">Niat Hanane</h1>
                 </div>
                 <div class="divider-thin"></div>
                 <p class="date-string">Friday &nbsp;·&nbsp; 11 September 2026</p>
-                <div class="orn-row" style="margin-top:32px;"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                <div class="orn-row" style="margin-top:32px"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
             </div>
             <div class="section-arrow">
                 <span class="sa-text">More below</span>
                 <div class="sa-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COUNTDOWN -->
-    <section class="page-section s-rose s-countdown">
+    <!-- ═══════════════════════ COUNTDOWN ═══════════════════════ -->
+    <section class="page-section s-rose">
         <div class="reveal-block">
-            <p class="eyebrow eyebrow-light">Counting down to forever</p>
-            <div class="countdown" id="countdown">
-                <div class="cd-item">
-                    <div class="cd-box"><span class="cd-num" id="cdDays">--</span></div>
-                    <span class="cd-lbl">Days</span>
-                </div>
+            <p class="eyebrow eyebrow-pale">Counting down to forever</p>
+            <div class="countdown">
+                <div class="cd-item"><div class="cd-box"><span class="cd-num" id="cdDays">--</span></div><span class="cd-lbl">Days</span></div>
                 <div class="cd-sep">:</div>
-                <div class="cd-item">
-                    <div class="cd-box"><span class="cd-num" id="cdHours">--</span></div>
-                    <span class="cd-lbl">Hours</span>
-                </div>
+                <div class="cd-item"><div class="cd-box"><span class="cd-num" id="cdHours">--</span></div><span class="cd-lbl">Hours</span></div>
                 <div class="cd-sep">:</div>
-                <div class="cd-item">
-                    <div class="cd-box"><span class="cd-num" id="cdMinutes">--</span></div>
-                    <span class="cd-lbl">Minutes</span>
-                </div>
+                <div class="cd-item"><div class="cd-box"><span class="cd-num" id="cdMinutes">--</span></div><span class="cd-lbl">Minutes</span></div>
                 <div class="cd-sep">:</div>
-                <div class="cd-item">
-                    <div class="cd-box"><span class="cd-num" id="cdSeconds">--</span></div>
-                    <span class="cd-lbl">Seconds</span>
-                </div>
+                <div class="cd-item"><div class="cd-box"><span class="cd-num" id="cdSeconds">--</span></div><span class="cd-lbl">Seconds</span></div>
             </div>
-            <div class="section-arrow section-arrow-pale">
+            <div class="section-arrow sa-pale">
                 <span class="sa-text">More below</span>
                 <div class="sa-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CEREMONY ONLY — reception removed -->
-    <section class="page-section s-light s-ceremony">
+    <!-- ═══════════════════════ CEREMONY ═══════════════════════ -->
+    <section class="page-section s-light">
         <div class="reveal-block">
-            <div class="single-ceremony">
-                <div class="orn-row sm-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+            <div class="ceremony-card">
+                <div class="orn-row"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
                 <p class="eyebrow">Ceremony</p>
-                <h2 class="block-title">The Nikah</h2>
-                <p class="block-time">6 : 00 PM</p>
-                <p class="block-venue">Elbouni, Annaba</p>
-                <p class="block-address">Annaba, Algeria</p>
+                <h2 class="ceremony-title">The Nikah</h2>
+                <p class="ceremony-time">6 : 00 PM</p>
+                <p class="ceremony-venue">Elbouni, Annaba</p>
+                <p class="ceremony-addr">Annaba, Algeria</p>
+                <div class="orn-row" style="margin-top:32px"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
             </div>
             <div class="section-arrow">
                 <span class="sa-text">More below</span>
                 <div class="sa-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QUOTE -->
-    <section class="page-section s-blush s-quote">
+    <!-- ═══════════════════════ QURAN VERSE ═══════════════════════ -->
+    <section class="page-section s-blush">
         <div class="reveal-block">
-            <div class="quote-block">
-                <div class="quote-mark">"</div>
-                <blockquote class="quote-text">
-                    And of His signs is that He created for you<br>
-                    from yourselves mates that you may find<br>
-                    tranquillity in them
+            <div class="quran-block">
+                <div class="quran-ornament">
+                    <span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span>
+                </div>
+                <blockquote class="quran-text">
+                    ﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ﴾
                 </blockquote>
-                <cite class="quote-source">— Quran 30:21</cite>
+                <cite class="quran-source">[ الروم: 21 ]</cite>
+                <div class="quran-ornament" style="margin-top:28px">
+                    <span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span>
+                </div>
             </div>
             <div class="section-arrow">
                 <span class="sa-text">More below</span>
                 <div class="sa-icon">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MESSAGE — بسم الله first, then Together with their families -->
-    <section class="page-section s-dark s-message">
+    <!-- ═══════════════════════ MESSAGE ═══════════════════════ -->
+    <section class="page-section s-dark">
         <div class="dark-mesh">
             <div class="dm-c dm-c1"></div>
             <div class="dm-c dm-c2"></div>
         </div>
-        <div class="reveal-block" style="position:relative;z-index:2;">
+        <div class="reveal-block" style="position:relative;z-index:2">
             <div class="card card-dark">
-                <div class="orn-row dark-orn-row"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
-                <p class="msg-verse">بسم الله الرحمن الرحيم</p>
-                <p class="eyebrow eyebrow-gold" style="margin-top:22px;">Together with their families</p>
+                <div class="orn-row dark-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                <p class="bismillah">بسم الله الرحمن الرحيم</p>
+                <p class="eyebrow eyebrow-gold" style="margin-top:20px">Together with their families</p>
                 <h2 class="msg-title">Join Us</h2>
                 <p class="msg-body">
                     We joyfully request the honour of your presence<br>
                     as we begin our journey together in love, faith, and joy.
                 </p>
-                <div class="orn-row dark-orn-row" style="margin-top:36px;"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
+                <div class="orn-row dark-orn" style="margin-top:36px"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
     <footer class="site-footer">
         <div class="orn-row footer-orn"><span class="orn-l"></span><span class="orn-gem">◈</span><span class="orn-r"></span></div>
         <p class="footer-names">Hanane &amp; Amine</p>
