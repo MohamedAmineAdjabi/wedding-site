@@ -10,6 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollCueFade();
     initBackToTop();
     initCountdown();
+
+    /* ── Smooth anchors ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
+        });
+    });
 });
 
 /* ── ENVELOPE ── */
@@ -127,12 +136,12 @@ function initProgress() {
     let t = false;
     window.addEventListener('scroll', () => {
         if (!t) {
+            t = true;
             requestAnimationFrame(() => {
-                const tot = document.documentElement.scrollHeight - innerHeight;
-                bar.style.width = (tot > 0 ? scrollY / tot * 100 : 0) + '%';
+                const tot = document.documentElement.scrollHeight - window.innerHeight;
+                bar.style.width = (tot > 0 ? window.scrollY / tot * 100 : 0) + '%';
                 t = false;
             });
-            t = true;
         }
     }, { passive:true });
 }
@@ -156,7 +165,7 @@ function initScrollCueFade() {
     const cue = document.getElementById('scrollCue');
     if (!cue) return;
     window.addEventListener('scroll', () => {
-        const pct = scrollY / (document.documentElement.scrollHeight - innerHeight);
+        const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
         cue.style.opacity = pct > .07 ? '0' : '1';
     }, { passive:true });
 }
@@ -195,11 +204,4 @@ function initCountdown() {
     setInterval(tick, 1000);
 }
 
-/* ── Smooth anchors ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-        e.preventDefault();
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) t.scrollIntoView({ behavior:'smooth', block:'start' });
-    });
-});
+
