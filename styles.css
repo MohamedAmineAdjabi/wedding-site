@@ -28,7 +28,7 @@ html { scroll-behavior:smooth; }
 
     --ff-serif: 'Cormorant Garamond', Georgia, serif;
     --ff-sans:  'Jost', sans-serif;
-    --ff-arabic:'Amiri', 'Traditional Arabic', serif;
+    --ff-arabic:'Scheherazade New', 'Amiri', 'Traditional Arabic', serif;
     --ease:     cubic-bezier(0.25,0.46,0.45,0.94);
 }
 
@@ -70,9 +70,9 @@ body {
     align-items:center;
     justify-content:center;
     position:relative;
-    overflow:hidden;
+    overflow:clip; /* clip doesn't break perspective like hidden does */
     background:var(--rose-deep);
-    padding:80px 24px 60px;
+    padding:80px 20px 60px;
     gap:0;
 }
 
@@ -96,7 +96,7 @@ body {
     position:absolute; top:36px; left:50%; transform:translateX(-50%); z-index:4;
 }
 .hero-year {
-    font-family:var(--ff-sans); font-size:.6rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.74rem; font-weight:200;
     letter-spacing:8px; color:rgba(212,160,176,.5); text-transform:uppercase;
 }
 
@@ -128,10 +128,11 @@ body {
 }
 
 .tagline-text {
-    font-family:var(--ff-serif); font-size:clamp(.9rem,2.4vw,1.2rem);
+    font-family:var(--ff-serif); font-size:clamp(.82rem,3.5vw,1.2rem);
     font-weight:300; font-style:italic;
     color:rgba(242,215,224,.85); letter-spacing:.5px;
-    white-space:nowrap;
+    white-space:normal; text-align:center;
+    max-width:260px;
 }
 
 /* ═══════════════════════════════════════════════
@@ -147,11 +148,10 @@ body {
 
 /* The envelope box */
 .env {
-    width:  clamp(280px, 70vw, 490px);
-    height: clamp(188px, 47vw, 328px);
+    width:  min(88vw, 490px);
+    height: min(59vw, 328px);
     position: relative;
     transform-style: preserve-3d;
-    /* hover lift — only when closed */
     transition: transform .35s var(--ease), filter .35s;
     filter: drop-shadow(0 28px 55px rgba(20,5,15,.6));
 }
@@ -225,7 +225,7 @@ body {
 .env-text { text-align:center; position:relative; z-index:2; }
 
 .env-invite {
-    font-family:var(--ff-sans); font-size:clamp(.52rem,1.4vw,.66rem);
+    font-family:var(--ff-sans); font-size:clamp(.68rem,1.4vw,.82rem);
     font-weight:200; letter-spacing:5px; text-transform:uppercase;
     color:var(--ink-soft); margin-bottom:5px;
 }
@@ -244,7 +244,7 @@ body {
 }
 
 .hint-label {
-    font-family:var(--ff-sans); font-size:.56rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.7rem; font-weight:200;
     letter-spacing:4px; text-transform:uppercase; color:var(--ink-soft);
 }
 
@@ -313,7 +313,7 @@ body {
 }
 
 .sc-label {
-    font-family:var(--ff-sans); font-size:.54rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.68rem; font-weight:200;
     letter-spacing:5px; text-transform:uppercase; color:rgba(212,160,176,.45);
 }
 
@@ -377,7 +377,7 @@ body {
     flex:1; height:1px; max-width:110px;
     background:linear-gradient(to left,transparent,var(--gold)); opacity:.5;
 }
-.orn-gem { font-size:.48rem; color:var(--gold); opacity:.75; line-height:1; }
+.orn-gem { font-size:.62rem; color:var(--gold); opacity:.75; line-height:1; }
 
 .dark-orn .orn-l { background:linear-gradient(to right,transparent,rgba(217,185,120,.5)); opacity:1; }
 .dark-orn .orn-r { background:linear-gradient(to left,transparent,rgba(217,185,120,.5)); opacity:1; }
@@ -385,7 +385,7 @@ body {
 
 /* ── Eyebrow ── */
 .eyebrow {
-    font-family:var(--ff-sans); font-size:.6rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.75rem; font-weight:200;
     letter-spacing:6px; text-transform:uppercase; color:var(--ink-soft);
     margin-bottom:20px;
 }
@@ -408,7 +408,7 @@ body {
     background:linear-gradient(to right,transparent,var(--gold),transparent); opacity:.55;
 }
 .date-string {
-    font-family:var(--ff-sans); font-size:.64rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.78rem; font-weight:200;
     letter-spacing:4px; text-transform:uppercase; color:var(--ink-soft);
 }
 
@@ -437,7 +437,7 @@ body {
     letter-spacing:2px; min-width:2ch; text-align:center;
 }
 .cd-lbl {
-    font-family:var(--ff-sans); font-size:.53rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.68rem; font-weight:200;
     letter-spacing:5px; text-transform:uppercase; color:rgba(212,160,176,.55);
 }
 .cd-sep {
@@ -449,11 +449,15 @@ body {
 
 /* ── Ceremony card ── */
 .ceremony-card {
-    padding:60px 72px; text-align:center;
-    background:linear-gradient(158deg,rgba(255,255,255,.92),rgba(250,243,246,.85));
-    border:1px solid rgba(196,154,90,.18); border-radius:2px;
-    box-shadow:0 2px 32px rgba(92,26,46,.07),0 0 0 6px rgba(196,154,90,.05);
-    max-width:420px; margin:0 auto;
+    padding: 52px 48px;
+    text-align: center;
+    background: linear-gradient(158deg,rgba(255,255,255,.92),rgba(250,243,246,.85));
+    border: 1px solid rgba(196,154,90,.18);
+    border-radius: 2px;
+    box-shadow: 0 2px 32px rgba(92,26,46,.07), 0 0 0 6px rgba(196,154,90,.05);
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
 }
 .ceremony-title {
     font-family:var(--ff-serif); font-size:clamp(1.7rem,5vw,2.6rem);
@@ -464,37 +468,51 @@ body {
     font-style:italic; color:var(--rose-mid); margin-bottom:10px;
 }
 .ceremony-venue {
-    font-family:var(--ff-sans); font-size:.72rem; font-weight:300;
+    font-family:var(--ff-sans); font-size:.84rem; font-weight:300;
     color:var(--ink-mid); letter-spacing:1px; margin-bottom:4px;
 }
 .ceremony-addr {
-    font-family:var(--ff-sans); font-size:.6rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.74rem; font-weight:200;
     letter-spacing:2px; text-transform:uppercase; color:var(--ink-soft);
 }
 
 /* ── Quran verse ── */
-.quran-block { text-align:center; padding:12px 0; }
+.quran-block {
+    text-align: center;
+    padding: 12px 8px;
+    direction: rtl;
+}
 .quran-ornament {
     display:flex; align-items:center; justify-content:center;
     gap:14px; margin-bottom:28px;
 }
 .quran-text {
-    font-family:var(--ff-arabic);
-    font-size:clamp(1.3rem,4vw,1.9rem);
-    font-weight:400;
-    color:var(--ink-mid);
-    line-height:2.4;
-    direction:rtl;
-    text-align:center;
-    letter-spacing:.3px;
-    margin-bottom:20px;
-    font-style:normal;
+    font-family: var(--ff-arabic);
+    font-size: clamp(1.2rem, 4.5vw, 1.85rem);
+    font-weight: 400;
+    color: var(--ink-mid);
+    line-height: 2.6;
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: center;
+    letter-spacing: 0;
+    word-spacing: 4px;
+    margin-bottom: 20px;
+    font-style: normal;
+    display: block;
+    width: 100%;
 }
 .quran-source {
-    font-family:var(--ff-arabic);
-    font-size:1rem; font-weight:400;
-    color:var(--rose-mid); font-style:normal;
-    letter-spacing:.5px; direction:rtl;
+    font-family: var(--ff-arabic);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--rose-mid);
+    font-style: normal;
+    direction: rtl;
+    unicode-bidi: embed;
+    display: block;
+    text-align: center;
+    letter-spacing: 0;
 }
 
 /* ── Dark message ── */
@@ -532,11 +550,11 @@ body {
     font-style:italic; color:var(--on-dark); letter-spacing:1px;
 }
 .footer-date {
-    font-family:var(--ff-sans); font-size:.62rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.76rem; font-weight:200;
     letter-spacing:6px; color:var(--rose-dust); text-transform:uppercase;
 }
 .footer-sub {
-    font-family:var(--ff-sans); font-size:.56rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.7rem; font-weight:200;
     letter-spacing:4px; color:rgba(212,160,176,.38); text-transform:uppercase;
 }
 
@@ -547,7 +565,7 @@ body {
 }
 .section-arrow:hover { opacity:.88; }
 .sa-text {
-    font-family:var(--ff-sans); font-size:.54rem; font-weight:200;
+    font-family:var(--ff-sans); font-size:.68rem; font-weight:200;
     letter-spacing:5px; text-transform:uppercase; color:var(--rose-mid);
 }
 .sa-icon { color:var(--rose-mid); animation:saBounce 2s ease-in-out infinite; }
